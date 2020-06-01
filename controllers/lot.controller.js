@@ -17,8 +17,6 @@ exports.addLot = (req, res) => {
    }
 
 exports.getLot  = (req, res)=>{
-    console.log("this is getlots request!!!")
-    console.log(req.body)
     return Lot.findAll({where:{mallId:req.body.mallId}})
     .then((lots)=>{return res.json({ lots })})
     .catch((err)=>{return res.status(400).json({error: "Database has no lots!!!"})})
