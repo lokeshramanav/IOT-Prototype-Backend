@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
     const BookingDetail = sequelize.define("bookingDetail", {
-      mall_name: {
+      mall_name:{
         type: Sequelize.STRING
       },
       lot_name:{

@@ -8,6 +8,7 @@ const db = require("./models");
 
 //routers
 const mallRoutes = require('./routes/mall.routes');
+const slotRoutes = require('./routes/slot.routes')
 
 
 var corsOptions = {
@@ -29,6 +30,7 @@ app.get("/health", (req, res) => {
 });
 
 app.use('/api/mall',mallRoutes);
+app.use('/api/slot',slotRoutes);
 
 
 app.listen(PORT, () => {

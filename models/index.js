@@ -42,5 +42,10 @@ db.bookingDetails.belongsTo(db.slot, {
   foreignKey: "slotId",
   as: "slot",
 });
+db.mall.hasMany(db.bookingDetails , { as: "bookingDetails" });
+db.bookingDetails.belongsTo(db.mall, {
+  foreignKey: "mallId",
+  as: "mall",
+});
 
 module.exports = db;
