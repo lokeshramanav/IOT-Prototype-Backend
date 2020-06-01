@@ -1,17 +1,25 @@
-// const db = require("../models");
-// const Mall = db.mall;
+const db = require("../models");
+const Lot = db.lot;
 
-// exports.addMall = (req, res) => {
-//     return Mall.create({
-//         mall_name: req.body.mall_name,
-//         mall_location: req.body.mall_location,
-//     })
-//       .then((mall) => {
-//         console.log(">> Mall Created: " + JSON.stringify(mall, null, 4));
-//         return res.json({mall});
-//       })
-//       .catch((err) => {
-//         console.log(">> Error while creating mall: ", err);
-//         return res.status(400).json({error: err.message})
-//       });
-//   }
+exports.addLot = (req, res) => {
+     return Lot.create({
+         lot_name: req.body.lotName,
+         mallId: req.body.mallId,
+     })
+       .then((lot) => {
+         console.log(">> Lot Created: " + JSON.stringify(lot, null, 4));
+         return res.json({lot});
+       })
+       .catch((err) => {
+         console.log(">> Error while creating lot: ", err);
+         return res.status(400).json({error: err.message})
+       });
+   }
+
+exports.getLot  = (req, res)=>{
+    console.log("this is getlots request!!!")
+    console.log(req.body)
+    return Lot.findAll({where:{mallId:req.body.mallId}})
+    .then((lots)=>{return res.json({ lots })})
+    .catch((err)=>{return res.status(400).json({error: "Database has no lots!!!"})})
+}

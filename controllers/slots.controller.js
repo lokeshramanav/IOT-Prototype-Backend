@@ -93,5 +93,19 @@ const getEmptyLotandSlotforMall = async (mallId, startDate , startTime)=>{
 
 
 }
-// Bookings.findAll({where:{slotId: 1}}).then((data)=>{console.log(data[0].dataValues.mall_name)})
-// the incoming  slot request must not clash with the existing slot
+
+
+exports.addSlots = (req, res) => {
+    return Slot.create({
+        slot_number: req.body.slotNumber,
+        lotId: req.body.lotId,
+    })
+      .then((slot) => {
+        console.log(">> Slot Created: " + JSON.stringify(slot, null, 4));
+        return res.json({slot});
+      })
+      .catch((err) => {
+        console.log(">> Error while creating slot: ", err);
+        return res.status(400).json({error: err.message})
+      });
+  }

@@ -9,7 +9,8 @@ const db = require("./models");
 //routers
 const mallRoutes = require('./routes/mall.routes');
 const slotRoutes = require('./routes/slot.routes')
-
+const lotRoutes = require('./routes/lot.routes')
+const bookingDetailRoutes = require('./routes/bookingDetails.routes')
 
 var corsOptions = {
   origin: "http://localhost:3000"
@@ -31,6 +32,8 @@ app.get("/health", (req, res) => {
 
 app.use('/api/mall',mallRoutes);
 app.use('/api/slot',slotRoutes);
+app.use('/api/lot',lotRoutes);
+app.use('/api/bookingDetail',bookingDetailRoutes);
 
 
 app.listen(PORT, () => {
