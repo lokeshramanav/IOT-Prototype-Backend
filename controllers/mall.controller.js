@@ -17,7 +17,7 @@ exports.addMall = (req, res) => {
   }
 
 exports.getMalls = (req, res)=>{
-    return Mall.findAll()
+    return Mall.findAll({ include: ["lot"] })
             .then((malls)=>{return res.json({ malls })})
             .catch((err)=>{return res.status(400).json({error: "Database has no malls!!!"})})
 }

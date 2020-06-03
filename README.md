@@ -8,9 +8,9 @@
 
 ## My Approach To Solve The Challenge
 - Step 1: My Database was designed as per the following ER Diagram
-![](/images/dbschema.JPG)
+![](/images/dbschema.PNG)
 - Step 2: Slots controller was designed based on the logic described in the following flow chart
 ![](/images/surereserve.png)
-      
+
 
 

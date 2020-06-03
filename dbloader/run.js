@@ -1,6 +1,6 @@
 const {addMall} = require('./addMall')
 const {addLot} = require('./addlot')
-const {addSlot} = require('./addSlot')
+
 
 exports.run = async ()=>{
     const mall1 = await addMall({
@@ -21,10 +21,5 @@ exports.run = async ()=>{
     const lot1 = await addLot(mall1.id , "Parking Lot A")
     const lot2 = await addLot(mall1.id , "Parking Lot B")
 
-    const slot1 = await addSlot(lot1.id , "100")
-    const slot2 = await addSlot(lot1.id , "101")
-    const slot3 = await addSlot(lot1.id , "102")
-    const slot4 = await addSlot(lot2.id , "201")
-    const slot5 = await addSlot(lot2.id , "202")
 
   }

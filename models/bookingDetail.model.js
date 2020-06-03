@@ -6,9 +6,6 @@ module.exports = (sequelize, Sequelize) => {
       lot_name:{
         type: Sequelize.STRING
       },
-      slot_num:{
-        type: Sequelize.STRING
-      },
       userName:{
         type: Sequelize.STRING
       },

@@ -29,19 +29,13 @@ db.lot.belongsTo(db.mall, {
 });
 
 
-db.slot = require("./slots.model.js")(sequelize, Sequelize);
-db.lot.hasMany(db.slot , { as: "slot" });
-db.slot.belongsTo(db.lot, {
+db.bookingDetails = require("./bookingDetail.model.js")(sequelize, Sequelize);
+db.lot.hasMany(db.bookingDetails , { as: "bookingDetails" });
+db.bookingDetails.belongsTo(db.lot, {
   foreignKey: "lotId",
   as: "lot",
 });
 
-db.bookingDetails = require("./bookingDetail.model.js")(sequelize, Sequelize);
-db.slot.hasMany(db.bookingDetails , { as: "bookingDetails" });
-db.bookingDetails.belongsTo(db.slot, {
-  foreignKey: "slotId",
-  as: "slot",
-});
 db.mall.hasMany(db.bookingDetails , { as: "bookingDetails" });
 db.bookingDetails.belongsTo(db.mall, {
   foreignKey: "mallId",
